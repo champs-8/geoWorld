@@ -8,24 +8,36 @@ export  function GetHourNow() {
     return <div>{hourConverted}</div>;
 }
 
+interface InfosProps {
+    ip: string, 
+    city: string,
+    country: string,
+    region: string
+}
+
 export function GetLocationIp() {
 
-    const [location, setLocation] = useState(null);
+    const [location, setLocation] = useState<InfosProps | null>(null);
 
-
+    
     useEffect(() => {
-        axios.get('https://ipinfo.io')
+        
+        const tokenInfo = process.env.REACT_APP_IP_INFO;
+
+        axios.get('https://ipinfo.io?token='+ tokenInfo)
         .then(response => setLocation(response.data))
         .catch(err => console.log(`erro ao buscar IP: ${err}`));
     }, []);
-
-
+    
+    console.log(location);
+    
     return(
         <div>
-            {location && (
-                <p>{location}</p>
+            {location ? (
+                <p> City: {location.city}</p>
+            ): (
+                <p>Carregando informações...</p>
             )}
-            
         </div>
     );
 }
