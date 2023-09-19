@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
 
 export  function GetHourNow() {
@@ -28,8 +28,6 @@ export function GetLocationIp() {
         .then(response => setLocation(response.data))
         .catch(err => console.log(`erro ao buscar IP: ${err}`));
     }, []);
-    
-    console.log(location);
     
     return(
         <div>
