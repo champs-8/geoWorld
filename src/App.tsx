@@ -1,6 +1,15 @@
+import { useState } from "react";
 import {GetHourNow, GetLocationIp} from "./components/LocationData";
+import SearchCountry from "./components/CountryData";
 
 function App() {
+
+  const [countrySelected, setCountrySelected] = useState('')
+  const [dataCountryVisible, setDataCountryVisible] = useState(false)
+
+  function handleSearchCountry() {
+      setDataCountryVisible(true);
+  }
 
   return (
     <div className="App">
@@ -14,12 +23,32 @@ function App() {
                   </ul>
                 </nav>
 
-                <input type="text" name="country" id="country" placeholder="Brazil"/>
-                <button type="submit">Search</button>
+                <input 
+                  type="text" 
+                  name="country" 
+                  id="country" 
+                  placeholder="Country"
+                  value={countrySelected}
+                  onChange={(e) => setCountrySelected(e.target.value)}
+                />
+                <button type="submit" onClick={handleSearchCountry}>
+                    Search
+                </button>
+
                 <div className="infosIP">
                   <GetHourNow/>
                   <GetLocationIp/>
+
+                  
+                  {/* controle para mostrar de primeira as informações */}
+                  {dataCountryVisible === true ? (
+                    <SearchCountry country={countrySelected} />
+                  ):(
+                    ''
+                  )}
                 </div>
+
+                
             </header>
         </div>
     </div>
