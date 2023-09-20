@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.App{
+    height: 100vh;
+    width: 100vw;
+}
+.container {
+    background-color: rgba(51, 153, 194, 0.884);
+    height: 100%;
+    align-items: center;
+}
+.header {
+    display: flex;
+    padding: 20px;
+}
+.navHeader {
+    width: 100%;
+    display: flex;
+    padding: 2px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.listNav {
+    display: flex;
+    flex-direction: row;
+}
+.listNav li {
+    padding: 10px;
+    list-style: none;
+}
+
+/* input central */
+.containerInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 100%;
+}
+.mainInput {
+
+}
