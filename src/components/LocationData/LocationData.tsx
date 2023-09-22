@@ -32,7 +32,7 @@ export function GetLocationIp() {
     return(
         <div>
             {location ? (
-                <p> City: {location.city}</p>
+                <p>{location.city} - {location.region}/{location.country}</p>
             ): (
                 <p>Carregando informações...</p>
             )}

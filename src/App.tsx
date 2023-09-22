@@ -45,7 +45,7 @@ function App() {
                     value={countrySelected}
                     onChange={(e) => setCountrySelected(e.target.value)}
                   />
-                  <button type="submit" onClick={handleSearchCountry}>
+                  <button type="submit" onClick={handleSearchCountry} id="searchBtn">
                       Search
                   </button>
                 </div>
@@ -54,6 +54,7 @@ function App() {
                   <GetHourNow/>
                   <GetLocationIp/>
 
+                </div>
                   
                   {/* controle para mostrar de primeira as informações */}
                   {dataCountryVisible === true ? (
@@ -61,7 +62,6 @@ function App() {
                   ):(
                     ''
                   )}
-                </div>
             </div>
         </div>
     </div>
