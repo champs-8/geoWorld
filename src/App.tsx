@@ -11,6 +11,7 @@ function App() {
 
   function handleSearchCountry() {
 
+
     //sempre que clicar em pesquisar, vai começar como false
     //para caso fizer um busca bem sucedida e depois outra não.
     setDataCountryVisible(false)
