@@ -94,10 +94,12 @@ export default function SearchCountry({country}: CountryProps) {
             const map = L.map('map').setView([coordX, coordY], 3);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
             L.marker([coordCapX, coordCapY]).addTo(map).bindPopup(`Capital: ${infoCountry[0].capital}`)
+
+            return () => {
+                map.remove();
+            } 
         }
-        
-        
-    }, [infoCountry]);
+    }, [country]);
     
 
     return (
@@ -127,7 +129,7 @@ export default function SearchCountry({country}: CountryProps) {
                     
                     <p> Independente: {(infoCountry[0].independent) === true ? 'Sim': 'Não'}</p>
 
-                    {/* <p>Mapa: {infoCountry[0].maps.googleMaps}</p> */}
+                    <p>Mapa: {infoCountry[0].maps.googleMaps}</p>
                     <div id="map" style={{ width: '100%', height: '400px' }}></div>
                 </div>
             ) : (
