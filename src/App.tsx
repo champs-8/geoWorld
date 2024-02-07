@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {GetHourNow, GetLocationIp} from "./components/LocationData/LocationData";
 import SearchCountry from "./components/CountryData/CountryData";
 import './app.css'
@@ -9,13 +9,17 @@ function App() {
   const [countrySelected, setCountrySelected] = useState('')
   const [dataCountryVisible, setDataCountryVisible] = useState(false)
 
-  function handleSearchCountry() {
-
-
-    //sempre que clicar em pesquisar, vai começar como false
-    //para caso fizer um busca bem sucedida e depois outra não.
-    setDataCountryVisible(false)
+  useEffect(()=> {
     
+    //sempre que clicar em pesquisar, vai começar como false
+    setDataCountryVisible(false)
+
+  }, [])
+
+  function handleSearchCountry(event: React.MouseEvent<HTMLButtonElement> ) {
+
+    event.preventDefault();
+
     if (countrySelected) {
       setDataCountryVisible(true);
       return
@@ -33,6 +37,7 @@ function App() {
                     <li>Buscar</li>
                     <li>Contato</li>
                     <li>Sobre</li>
+                    <li>v1.0.0</li>
                   </ul>
                 </nav>
             </header>
@@ -56,13 +61,15 @@ function App() {
                   <GetLocationIp/>
 
                 </div>
-                  
-                  {/* controle para mostrar de primeira as informações */}
-                  {dataCountryVisible === true ? (
-                    <SearchCountry country={countrySelected} />
-                  ):(
-                    ''
-                  )}
+            </div>
+            <div className="countryResponse">
+              
+              {/* controle para mostrar de primeira as informações */}
+              {dataCountryVisible === true ? (
+                <SearchCountry country={countrySelected}/>
+              ):(
+                ''
+              )}
             </div>
         </div>
     </div>

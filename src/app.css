@@ -3,12 +3,13 @@
     padding: 0;
 }
 .App{
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
+    background-color: rgba(51, 153, 194, 0.954);
 }
 .container {
-    background-color: rgba(51, 153, 194, 0.884);
-    height: 100%;
+
+    height: auto;
     align-items: center;
 }
 .header {
